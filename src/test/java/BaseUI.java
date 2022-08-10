@@ -1,4 +1,7 @@
 import io.github.bonigarcia.wdm.WebDriverManager;
+import org.apache.commons.io.FileUtils;
+import org.openqa.selenium.OutputType;
+import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
@@ -74,6 +77,23 @@ public class BaseUI
 
 
 
+        }
+        catch(Exception e)
+        {
+            e.printStackTrace();
+        }
+
+
+    }
+
+    public void screenshot(){
+
+        TakesScreenshot ts = (TakesScreenshot) driver;
+
+        File pic = ts.getScreenshotAs(OutputType.FILE);
+        try
+        {
+            FileUtils.copyFile(pic,new File(System.getProperty("user.dir")+"src/results/"+Dateutils.timestamp()+".png"));
         }
         catch(Exception e)
         {

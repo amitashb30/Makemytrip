@@ -2,7 +2,7 @@ import org.testng.annotations.*;
 
 public class OpenBrowser extends Makemytrip
 {
-   @Test(priority = 1)
+   @BeforeTest
     public void openBrowser()
 
     {
@@ -12,13 +12,13 @@ public class OpenBrowser extends Makemytrip
 
     }
 
-    @Test(priority = 2)
+    @Test
     public void ticket(){
 
         booking();
     }
 
-    @Test(priority = 3)
+    @AfterTest
     public void closeBrowser()
     {
 
