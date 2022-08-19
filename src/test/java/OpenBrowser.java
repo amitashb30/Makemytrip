@@ -1,6 +1,6 @@
 import org.testng.annotations.*;
 
-public class OpenBrowser extends Makemytrip
+public class OpenBrowser extends Flipkart
 {
    @BeforeTest
     public void openBrowser()
@@ -8,14 +8,14 @@ public class OpenBrowser extends Makemytrip
     {
 
         fileLoading();
-        invokeBrowser("chrome",url);
+        invokeBrowser(browser,url);
 
     }
 
     @Test
     public void ticket(){
 
-        booking();
+        ordering();
     }
 
     @AfterTest

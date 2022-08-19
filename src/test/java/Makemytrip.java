@@ -7,6 +7,8 @@ import org.testng.Assert;
 import org.testng.annotations.Test;
 
 import java.time.Duration;
+import java.util.Collections;
+import java.util.List;
 
 public class Makemytrip extends BaseUI
 {
@@ -35,30 +37,64 @@ public class Makemytrip extends BaseUI
             wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//p[normalize-space()='Coimbatore, India']"))).click();
 
             wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//label[@for='departure']"))).click();
-            wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//div[contains(@aria-label,'Sat Aug 27 2022')]//p[contains(text(),'27')]"))).click();
 
             JavascriptExecutor js = (JavascriptExecutor)driver;
-            js.executeScript("window.scrollBy(0,100)","");
-
-            screenshot();
-
-            wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector(".primaryBtn.font24.latoBold.widgetSearchBtn"))).click();
-
-            wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//button[@class='button buttonSecondry buttonBig fontSize12 relative']"))).click();
-
             js.executeScript("window.scrollBy(0,200)","");
 
-            wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//button[@id='bookbutton-RKEY:fdce6722-56f1-4b53-8fa0-7f123548a55c:5_0']//span[@class='appendRight8'][normalize-space()='View Prices']"))).click();
-            wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath
-                    ("//div[@class='viewFareBtnCol ']//button[@id='bookbutton-RKEY:432ede2c-10d4-48cd-a59d-7e2e8be18c37:5_0']"))).click();
+            wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//div[contains(@aria-label,'Sat Aug 27 2022')]//p[contains(text(),'27')]"))).click();
 
 
+            js.executeScript("window.scrollBy(0,50)","");
 
+            wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//a[contains(@class,'primaryBtn font24 latoBold widgetSearchBtn')]"))).click();
 
-
-
-
+            /*for pop up
             Thread.sleep(5000);
+           WebElement okay = driver.findElement(By.xpath("//span[@class='bgProperties icon20 overlayCrossIcon']"));;
+
+
+            if (okay.isDisplayed())
+            {
+                okay.click();
+            }
+
+            else{
+                System.out.println("Alert not available");
+            }
+*/
+            js.executeScript("window.scrollBy(0,200)","");
+
+            By selector = By.className("appendRight8");
+            List <WebElement> viewprice = driver.findElements(selector);
+
+            viewprice.get(0).click();
+
+            js.executeScript("window.scrollBy(0,200)","");
+            By book = By.xpath("//button[contains(text(), 'Book Now')]");
+            List <WebElement> bookprice = driver.findElements(book);
+
+            bookprice.get(0).click();
+
+            driver.navigate().to(tab1url);
+            Thread.sleep(3000);
+
+
+
+            By Radiobutton = By.xpath("//body/div[@id='root']/div/div[@class='reviewTravellerAddons']/div[@class='flightBody']/div[@class='flightsContainer footerSpace']/div[@class='makeFlex spaceBetween']/div[@class='pageLeftConainer']/form[@id='mainSection_0']/div[@id='INSURANCE']/div[contains(@class,'componentContainer appendTop15')]/div[@class='insBottomSection']/div[2]/label[1]/span[1]/span[1]");
+            WebElement radio =  wait.until(ExpectedConditions.elementToBeClickable(Radiobutton));
+
+
+            js.executeScript("arguments[0].scrollIntoView();",radio);
+
+
+
+            radio.click();
+
+            Thread.sleep(3000);
+            js.executeScript("window.scrollBy(0,400)","");
+
+
+
 
         }
         catch(Exception e)
