@@ -15,8 +15,12 @@ public class OpenBrowser extends Flipkart
     @Test
     public void ticket(){
 
+
+        excelloading();
         ordering();
     }
+
+
 
     @AfterTest
     public void closeBrowser()

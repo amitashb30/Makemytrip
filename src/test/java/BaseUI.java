@@ -151,41 +151,7 @@ public class BaseUI
     }
 
 
-    public void excelloading(){
 
-        String model;
-        try
-        {
-
-            ExcelFlipkart ef = new ExcelFlipkart();
-            Vector dataholder = ef.readexcelfile();
-
-            int size = dataholder.size();
-
-
-            start=1;
-            stop=1;
-
-          for (int j=start;j<=stop;j++)
-          {
-
-              int x = 0;
-              Vector cellstorevalue = (Vector)dataholder.elementAt(j);
-              XSSFCell name = (XSSFCell)cellstorevalue.elementAt(x++);
-              model = name.toString().trim();
-
-
-
-          }
-
-        }
-        catch (Exception e)
-        {
-            e.printStackTrace();
-        }
-
-
-    }
 
 
 

@@ -35,7 +35,7 @@ public class ExcelFlipkart
                 for(int i=0;i<lastcolindex;i++)
                 {
                     XSSFCell cell = row.getCell(i);
-                    System.out.println("Cell number is " + cell);
+                    //System.out.println("Cell number is " + cell);
                     cellvector.addElement(cell);
 
                 }
