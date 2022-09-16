@@ -17,7 +17,9 @@ public class OpenBrowser extends Flipkart
 
 
         excelloading();
+        rep.getReportInstance();
         ordering();
+        rep.endTest();
     }
 
 
@@ -28,5 +30,6 @@ public class OpenBrowser extends Flipkart
 
         driver.close();
         driver.quit();
+
     }
 }
